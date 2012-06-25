@@ -7,115 +7,132 @@ var classes = [
 ];
 
 var barbarianSkills = {
-	PassiveSkills : [ 'Animosity', 'Berserker Rage', 'Bloodthirst', 'Boon of Bul-Kathos', 'Brawler', 'Inspiring Presence', 'Juggernaut', 'Nerves of Steel', 'No Escape', 'Pound of Flesh', 'Relentless', 'Ruthless', 'Superstition', 'Tough as Nails', 'Unforgiving', 'Weapons Master' ],
-	ActiveSkills : [ 'Ancient Spear', 'Bash', 'Battle Rage', 'Call of the Ancients', 'Cleave', 'Earthquake', 'Frenzy', 'Furious Charge', 'Ground Stomp', 'Hammer of the Ancients', 'Ignore Pain', 'Leap', 'Overpower', 'Rend', 'Revenge', 'Seismic Slam', 'Sprint', 'Threatening Shout', 'War Cry', 'Weapon Throw', 'Whirlwind', 'Wrath of the Berserker' ]
+	Passive : [ 'Animosity', 'Berserker Rage', 'Bloodthirst', 'Boon of Bul-Kathos', 'Brawler', 'Inspiring Presence', 'Juggernaut', 'Nerves of Steel', 'No Escape', 'Pound of Flesh', 'Relentless', 'Ruthless', 'Superstition', 'Tough as Nails', 'Unforgiving', 'Weapons Master' ],
+	Active: [ 'Ancient Spear', 'Bash', 'Battle Rage', 'Call of the Ancients', 'Cleave', 'Earthquake', 'Frenzy', 'Furious Charge', 'Ground Stomp', 'Hammer of the Ancients', 'Ignore Pain', 'Leap', 'Overpower', 'Rend', 'Revenge', 'Seismic Slam', 'Sprint', 'Threatening Shout', 'War Cry', 'Weapon Throw', 'Whirlwind', 'Wrath of the Berserker' ]
 };
 
 var demonHunterSkills = {
-	PassiveSkills : [ 'Archery', 'Ballistics', 'Brooding', 'Cull the Weak', 'Custom Engineering', 'Grenadier', 'Hot Pursuit', 'Night Stalker', 'Numbing Traps', 'Perfectionist', 'Sharpshooter', 'Steady Aim', 'Tactical Advantage', 'Thrill of the Hunt', 'Vengeance' ],
-	ActiveSkills : [ 'Bola Shot', 'Caltrops', 'Chakram', 'Cluster Arrow', 'Companion', 'Elemental Arrow', 'Entangling Shot', 'Evasive Fire', 'Fan of Knives', 'Grenades', 'Hungering Arrow', 'Impale', 'Marked for Death', 'Multishot', 'Preparation', 'Rain of Vengeance', 'Rapid Fire', 'Sentry', 'Shadow Power', 'Smoke Screen', 'Spike Trap', 'Strafe', 'Vault' ]
+	Passive : [ 'Archery', 'Ballistics', 'Brooding', 'Cull the Weak', 'Custom Engineering', 'Grenadier', 'Hot Pursuit', 'Night Stalker', 'Numbing Traps', 'Perfectionist', 'Sharpshooter', 'Steady Aim', 'Tactical Advantage', 'Thrill of the Hunt', 'Vengeance' ],
+	Active : [ 'Bola Shot', 'Caltrops', 'Chakram', 'Cluster Arrow', 'Companion', 'Elemental Arrow', 'Entangling Shot', 'Evasive Fire', 'Fan of Knives', 'Grenades', 'Hungering Arrow', 'Impale', 'Marked for Death', 'Multishot', 'Preparation', 'Rain of Vengeance', 'Rapid Fire', 'Sentry', 'Shadow Power', 'Smoke Screen', 'Spike Trap', 'Strafe', 'Vault' ]
 };
 
 var monkSkills = {
-	PassiveSkills : [ 'Beacon of Ytar', 'Chant of Resonance', 'Combination Strike', 'Exalted Soul', 'Fleet Footed', 'Guiding Light', 'Near Death Experience', 'One With Everything', 'Pacifism', 'Resolve', 'Seize the Initiative', 'Sixth Sense', 'The Guardian\'s Path', 'Transcendence' ],
-	ActiveSkills : [ 'Blinding Flash', 'Breath of Heaven', 'Crippling Wave', 'Cyclone Strike', 'Dashing Strike', 'Deatly Reach', 'Exploding Palm', 'Fists of Thunder', 'Inner Sanctuary', 'Lashing Tail Kick', 'Mantra of Conviction', 'Mantra of Evasion', 'Mantra of Healing', 'Mantra of Retribution', 'Mystic Ally', 'Serenity', 'Seven-Sided Strike', 'Sweeping Wind', 'Tempest Rush', 'Wave of Light', 'Way of the Hundred Fists' ]
+	Passive : [ 'Beacon of Ytar', 'Chant of Resonance', 'Combination Strike', 'Exalted Soul', 'Fleet Footed', 'Guiding Light', 'Near Death Experience', 'One With Everything', 'Pacifism', 'Resolve', 'Seize the Initiative', 'Sixth Sense', 'The Guardian\'s Path', 'Transcendence' ],
+	Active : [ 'Blinding Flash', 'Breath of Heaven', 'Crippling Wave', 'Cyclone Strike', 'Dashing Strike', 'Deatly Reach', 'Exploding Palm', 'Fists of Thunder', 'Inner Sanctuary', 'Lashing Tail Kick', 'Mantra of Conviction', 'Mantra of Evasion', 'Mantra of Healing', 'Mantra of Retribution', 'Mystic Ally', 'Serenity', 'Seven-Sided Strike', 'Sweeping Wind', 'Tempest Rush', 'Wave of Light', 'Way of the Hundred Fists' ]
 };
 
 var witchDoctorSkills = {
-	PassiveSkills : [ 'Bad Medicine', 'Blood Ritual', 'Circle of Life', 'Fetish Sycophants', 'Fierce Loyalty', 'Grave Injustice', 'Gruesome Feast', 'Jungle Fortitude', 'Pierce the Veil', 'Rush tof Essence', 'Spirit Vessel', 'Spiritual Attunement', 'Tribal Rites', 'Vision Quest', 'Zombie Handler' ],
-	ActiveSkills : [ 'Acid Cloud', 'Big Bad Voodoo', 'Corpse Spiders', 'Fetish ARmy', 'Firebats', 'Firebomb', 'Gargantuan', 'Grasp of the Dead', 'Haunt', 'Hex', 'Horrify', 'Locust Swarm', 'Mass Confusion', 'Plague of Toads', 'Poison Dar', 'Sacrifice', 'Soul Harvest', 'Spirit Barrage', 'Spirit Walk', 'Summon Zombie Dogs', 'Wall of Zombies', 'Zombie Charger' ]
+	Passive : [ 'Bad Medicine', 'Blood Ritual', 'Circle of Life', 'Fetish Sycophants', 'Fierce Loyalty', 'Grave Injustice', 'Gruesome Feast', 'Jungle Fortitude', 'Pierce the Veil', 'Rush tof Essence', 'Spirit Vessel', 'Spiritual Attunement', 'Tribal Rites', 'Vision Quest', 'Zombie Handler' ],
+	Active : [ 'Acid Cloud', 'Big Bad Voodoo', 'Corpse Spiders', 'Fetish ARmy', 'Firebats', 'Firebomb', 'Gargantuan', 'Grasp of the Dead', 'Haunt', 'Hex', 'Horrify', 'Locust Swarm', 'Mass Confusion', 'Plague of Toads', 'Poison Dar', 'Sacrifice', 'Soul Harvest', 'Spirit Barrage', 'Spirit Walk', 'Summon Zombie Dogs', 'Wall of Zombies', 'Zombie Charger' ]
 };
 
 var wizardSkills = {
-	PassiveSkills : [ 'Arcane Dynamo', 'Astral Presence', 'Blue', 'Cold Blooded', 'Conflagration', 'Critical Mass', 'Evocation', 'Galvanizing Ward', 'Glass Cannon', 'Illusionist', 'Paralysis', 'Power Hungry', 'Prodigy', 'Temporal Flux', 'Unstable Anomaly' ],
-	ActiveSkills : [ 'Arcane Orb', 'Arcane Torrent', 'Archon', 'Blizzard', 'Diamond Skin', 'Disintegrate', 'Electrocute', 'Energy Armor', 'Energy Twister', 'Explosive Blast', 'Familiar', 'Frost Nova', 'Hydra', 'Ice Armor', 'Magic Missile', 'Magic Weapon', 'Meteor', 'Mirror Image', 'Ray of Frost', 'Shock Pulse', 'Slow Time', 'Spectral Blade', 'Storm Armor', 'Teleport', 'Wave of Force' ]
+	Passive : [ 'Arcane Dynamo', 'Astral Presence', 'Blue', 'Cold Blooded', 'Conflagration', 'Critical Mass', 'Evocation', 'Galvanizing Ward', 'Glass Cannon', 'Illusionist', 'Paralysis', 'Power Hungry', 'Prodigy', 'Temporal Flux', 'Unstable Anomaly' ],
+	Active : [ 'Arcane Orb', 'Arcane Torrent', 'Archon', 'Blizzard', 'Diamond Skin', 'Disintegrate', 'Electrocute', 'Energy Armor', 'Energy Twister', 'Explosive Blast', 'Familiar', 'Frost Nova', 'Hydra', 'Ice Armor', 'Magic Missile', 'Magic Weapon', 'Meteor', 'Mirror Image', 'Ray of Frost', 'Shock Pulse', 'Slow Time', 'Spectral Blade', 'Storm Armor', 'Teleport', 'Wave of Force' ]
 };
 
 var classDetail = {
 	'Barbarian' : {
-		Categories : {
-			Mouse1 : { Name : 'Primary', Level : 1 },
-			Mouse2 : { Name : 'Secondary', Level : 2 },
-			1 : { Name : 'Defensive', Level : 4 },
-			2 : { Name : 'Might', Level : 9 },
-			3 : { Name : 'Tactics', Level : 14 },
-			4 : { Name : 'Rage', Level : 19 }
-		},
-		PassiveSkillSlots : { 
-			1 : { Level : 10 },
-			2 : { Level : 20 }, 
-			3 : { Level : 30 }
-		},
-		PassiveSkills : {
-			'Pound of Flesh' : {	
+		Categories : [
+			{ Name : 'Primary', Level : 1 },
+			{ Name : 'Secondary', Level : 2 },
+			{ Name : 'Defensive', Level : 4 },
+			{ Name : 'Might', Level : 9 },
+			{ Name : 'Tactics', Level : 14 },
+			{ Name : 'Rage', Level : 19 }
+		],
+		PassiveSkillSlots : [
+			{ Level : 10 },
+			{ Level : 20 }, 
+			{ Level : 30 }
+		],
+		Passive : [
+			{	
 				Level : 10 ,
-				Name : 'Pound of Flesh'
+				Name : 'Pound of Flesh',
+				UrlName : function(){ return toSlug(this.data.Name); }
 			},
-			'Ruthless' : { 
+			{ 
 				Level : 10,
-				Name : 'Ruthless'
+				Name : 'Ruthless',
+				UrlName : function(){ return toSlug(this.data.Name); }
 			},
-			'Nerves of Steel' : { 
+			{ 
 				Level : 13 ,
-				Name : 'Nerves of Steel'
+				Name : 'Nerves of Steel',
+				UrlName : function(){ return toSlug(this.data.Name); }
 			},
-			'Weapons Master' : { 
+			{ 
 				Level : 16,
-				Name : 'Weapons Master'
+				Name : 'Weapons Master',
+				UrlName : function(){ return toSlug(this.data.Name); }
 			},
-			'Berserker Rage' : { 
+			{ 
 				Level : 20,
-				Name : 'Berserker Rage'
+				Name : 'Berserker Rage',
+				UrlName : function(){ return toSlug(this.data.Name); }
 			},
-			'Inspiring Presence' : { 
+			{ 
 				Level : 20,
-				Name : 'Inspiring Presence'
+				Name : 'Inspiring Presence',
+				UrlName : function(){ return toSlug(this.data.Name); }
 			},
-			'Bloodthirst' : { 
+			{ 
 				Level : 24,
-				Name : 'Bloodthirst'
+				Name : 'Bloodthirst',
+				UrlName : function(){ return toSlug(this.data.Name); }
 			},
-			'Animosity' : { 
+			{ 
 				Level : 27,
-				Name : 'Animosity'
+				Name : 'Animosity',
+				UrlName : function(){ return toSlug(this.data.Name); }
 			},
-			'Superstition' : { 
+			{ 
 				Level : 30,
-				Name : 'Superstition'
+				Name : 'Superstition',
+				UrlName : function(){ return toSlug(this.data.Name); }
 			},
-			'Tough as Nails' : {	
+			{	
 				Level : 30,
-				Name : 'Tough as Nails'
+				Name : 'Tough as Nails',
+				UrlName : function(){ return toSlug(this.data.Name); }
 			},
-			'No Escape' : { 
+			{ 
 				Level : 35,
-				Name : 'No Escape'
+				Name : 'No Escape',
+				UrlName : function(){ return toSlug(this.data.Name); }
 			},
-			'Relentless' : { 
+			{ 
 				Level : 40,
-				Name : 'Relentless'
+				Name : 'Relentless',
+				UrlName : function(){ return toSlug(this.data.Name); }
 			},
-			'Brawler' : { 
+			{ 
 				Level : 45,
-				Name : 'Brawler'
+				Name : 'Brawler',
+				UrlName : function(){ return toSlug(this.data.Name); }
 			},
-			'Juggernaut' : { 
+			{ 
 				Level : 50,
-				Name : 'Juggernaut'
+				Name : 'Juggernaut',
+				UrlName : function(){ return toSlug(this.data.Name); }
 			},
-			'Unforgiving' : { 
+			{ 
 				Level : 55,
-				Name : 'Unforgiving'
+				Name : 'Unforgiving',
+				UrlName : function(){ return toSlug(this.data.Name); }
 			},
-			'Boon of Bul-Kathos' : { 
+			{ 
 				Level : 60,
-				Name : 'Boon of Bul-Kathos'
+				Name : 'Boon of Bul-Kathos',
+				UrlName : function(){ return toSlug(this.data.Name); }
 			}
-		},
-		ActiveSkills : {
-			'Bash' : {
+		],
+		Active : [
+			{
 				Level : 1,
 				Name : 'Bash', 
+				UrlName : function(){ return toSlug(this.data.Name); },
 				Category : 'Primary',
 				CanMouse1 : true,
 				Runes:  [
@@ -126,9 +143,10 @@ var classDetail = {
 					{ Name : 'Pulverize', Level : 52 }
 				]
 			},
-			'Hammer of the Ancients' : {
+			{
 				Level : 2,
 				Name : 'Hammer of the Ancients',
+				UrlName : function(){ return toSlug(this.data.Name); },
 				Category : 'Secondary',
 				CanMouse1 : true,
 				Runes:  [
@@ -139,9 +157,10 @@ var classDetail = {
 					{ Name : 'Birthright', Level : 53 }
 				]
 			},
-			'Cleave' : {
+			{
 				Level : 3,
 				Name : 'Cleave',
+				UrlName : function(){ return toSlug(this.data.Name); },
 				Category : 'Primary',
 				CanMouse1 : true,
 				Runes:  [
@@ -152,9 +171,10 @@ var classDetail = {
 					{ Name : 'Gathering Storm', Level : 55 }
 				]
 			},
-			'Ground Stomp' : {
+			{
 				Level : 4,
 				Name : 'Ground Stomp',
+				UrlName : function(){ return toSlug(this.data.Name); },
 				Category : 'Defensive',
 				CanMouse1 : true,
 				Runes:  [
@@ -165,9 +185,10 @@ var classDetail = {
 					{ Name : 'Avalanche', Level : 54 }
 				]
 			},
-			'Rend' : {
+			{
 				Level : 5,
 				Name : 'Rend',
+				UrlName : function(){ return toSlug(this.data.Name); },
 				Category : 'Secondary',
 				CanMouse1 : true,
 				Runes:  [
@@ -178,9 +199,10 @@ var classDetail = {
 					{ Name : 'Bloodbath', Level : 56 }
 				]
 			},
-			'Leap' : {
+			{
 				Level : 8,
 				Name : 'Leap',
+				UrlName : function(){ return toSlug(this.data.Name); },
 				Category : 'Defensive',
 				CanMouse1 : true,
 				Runes:  [
@@ -191,9 +213,10 @@ var classDetail = {
 					{ Name : 'Death from Above', Level : 60 }
 				]
 			},
-			'Ancient Spear' : {
+			{
 				Level : 9,
 				Name : 'Ancient Spear',
+				UrlName : function(){ return toSlug(this.data.Name); },
 				Category : 'Might',
 				CanMouse1 : true,
 				Runes:  [
@@ -204,9 +227,10 @@ var classDetail = {
 					{ Name : 'Rage Flip', Level : 49 }
 				]
 			},
-			'Frenzy' : {
+			{
 				Level : 11,
 				Name : 'Frenzy',
+				UrlName : function(){ return toSlug(this.data.Name); },
 				Category : 'Primary',
 				CanMouse1 : true,
 				Runes:  [
@@ -217,9 +241,10 @@ var classDetail = {
 					{ Name : 'Maniac', Level : 59 }
 				]
 			},
-			'Seismic Slam' : {
+			{
 				Level : 12,
 				Name : 'Seismic Slam',
+				UrlName : function(){ return toSlug(this.data.Name); },
 				Category : 'Secondary',
 				CanMouse1 : true,
 				Runes:  [
@@ -230,9 +255,10 @@ var classDetail = {
 					{ Name : 'Cracking Rift', Level : 57 }
 				]
 			},
-			'Revenge' : {
+			{
 				Level : 13,
 				Name : 'Revenge',
+				UrlName : function(){ return toSlug(this.data.Name); },
 				Category : 'Might',
 				CanMouse1 : false,
 				Runes:  [
@@ -243,9 +269,10 @@ var classDetail = {
 					{ Name : 'Provocation', Level : 52 }
 				]
 			},
-			'Weapon Throw' : {
+			{
 				Level : 14,
 				Name : 'Weapon Throw',
+				UrlName : function(){ return toSlug(this.data.Name); },
 				Category : 'Tactics',
 				CanMouse1 : true,
 				Runes:  [
@@ -256,9 +283,10 @@ var classDetail = {
 					{ Name : 'Dread Bomb', Level : 54 }
 				]
 			},
-			'Sprint' : {
+			{
 				Level : 16,
 				Name : 'Sprint',
+				UrlName : function(){ return toSlug(this.data.Name); },
 				Category : 'Defensive',
 				CanMouse1 : false,
 				Runes:  [
@@ -269,9 +297,10 @@ var classDetail = {
 					{ Name : 'Forced March', Level : 53 }
 				]
 			},
-			'Threatening Shout' : {
+			{
 				Level : 17,
 				Name : 'Threatening Shout',
+				UrlName : function(){ return toSlug(this.data.Name); },
 				Category : 'Tactics',
 				CanMouse1 : false,
 				Runes:  [
@@ -282,9 +311,10 @@ var classDetail = {
 					{ Name : 'Terrify', Level : 57 }
 				]
 			},
-			'Earthquake' : {
+			{
 				Level : 19,
 				Name : 'Earthquake',
+				UrlName : function(){ return toSlug(this.data.Name); },
 				Category : 'Rage',
 				CanMouse1 : true,
 				Runes:  [
@@ -295,9 +325,10 @@ var classDetail = {
 					{ Name : 'Path of Fire', Level : 56 }
 				]
 			},
-			'Whirlwind' : {
+			{
 				Level : 20,
 				Name : 'Whirlwind',
+				UrlName : function(){ return toSlug(this.data.Name); },
 				Category : 'Secondary',
 				CanMouse1 : true,
 				Runes:  [
@@ -305,12 +336,13 @@ var classDetail = {
 					{ Name : 'Hurricane', Level : 29 },
 					{ Name : 'Blood Funnel', Level : 37 },
 					{ Name : 'Wind Shear', Level : 44 },
-					{ Name : 'Volcanis Eruption', Level : 59 }
+					{ Name : 'Volcanic Eruption', Level : 59 }
 				]
 			},
-			'Furious Charge' : {
+			{
 				Level : 21,
 				Name : 'Furious Charge',
+				UrlName : function(){ return toSlug(this.data.Name); },
 				Category : 'Might',
 				CanMouse1 : true,
 				Runes:  [
@@ -321,9 +353,10 @@ var classDetail = {
 					{ Name : 'Dreadnought', Level : 56 }
 				]
 			},
-			'Battle Rage' : {
+			{
 				Level : 22,
 				Name : 'Battle Rage',
+				UrlName : function(){ return toSlug(this.data.Name); },
 				Category : 'Tactics',
 				CanMouse1 : false,
 				Runes:  [
@@ -334,9 +367,10 @@ var classDetail = {
 					{ Name : 'Bloodshed', Level : 54 }
 				]
 			},
-			'Ignore Pain' : {
+			{
 				Level : 22,
 				Name : 'Ignore Pain',
+				UrlName : function(){ return toSlug(this.data.Name); },
 				Category : 'Defensive',
 				CanMouse1 : false,
 				Runes:  [
@@ -347,9 +381,10 @@ var classDetail = {
 					{ Name : 'Contempt', Level : 58 }
 				]
 			},
-			'Call of the Ancients' : {
+			{
 				Level : 25,
 				Name : 'Call of the Ancients',
+				UrlName : function(){ return toSlug(this.data.Name); },
 				Category : 'Rage',
 				CanMouse1 : true,
 				Runes:  [
@@ -360,9 +395,10 @@ var classDetail = {
 					{ Name : 'Talic\'s Anger', Level : 58 }
 				]
 			},
-			'Overpower' : {
+			{
 				Level : 26,
 				Name : 'Overpower',
+				UrlName : function(){ return toSlug(this.data.Name); },
 				Category : 'Might',
 				CanMouse1 : false,
 				Runes:  [
@@ -373,9 +409,11 @@ var classDetail = {
 					{ Name : 'Revel', Level : 59 }
 				]
 			},
-			'War Cry' : {
+			{
 				Level : 28,
-				Category : 'War Cry',
+				Name : 'War Cry',
+				UrlName : function(){ return toSlug(this.data.Name); },
+				Category : 'Tactics',
 				CanMouse1 : false,
 				Runes:  [
 					{ Name : 'Hardened Wrath', Level : 32 },
@@ -385,9 +423,10 @@ var classDetail = {
 					{ Name : 'Impunity', Level : 60 }
 				]
 			},
-			'Wrath of the Berserker' : {
+			{
 				Level : 30,
 				Name : 'Wrath of the Berserker',
+				UrlName : function(){ return toSlug(this.data.Name); },
 				Category : 'Rage',
 				CanMouse1 : false,
 				Runes:  [
@@ -398,7 +437,7 @@ var classDetail = {
 					{ Name : 'Thrive on Chaos', Level : 60 }
 				]
 			}
-		}
+		]
 	},
 	'Demon Hunter'  : {
 		Categories : { 
@@ -448,12 +487,12 @@ var classDetail = {
 			2 : { Level : 20 },
 			3 : { Level : 30 }
 		},
-		PassiveSkills : {
+		Passive : {
 			'' : {	
 				Level : 10 
 			},
 		},		
-		ActiveSkills : {
+		Active : {
 			'' : {
 				Level : 1,
 				Category : 'Primary',
@@ -482,12 +521,12 @@ var classDetail = {
 			2 : { Level : 20 },
 			3 : { Level : 30 }
 		},
-		PassiveSkills : {
+		Passive : {
 			'' : {	
 				Level : 10 
 			},
 		},		
-		ActiveSkills : {
+		Active : {
 			'' : {
 				Level : 1,
 				Category : 'Primary',
@@ -516,12 +555,12 @@ var classDetail = {
 			2 : { Level : 20 },
 			3 : { Level : 30 }
 		},
-		PassiveSkills : {
+		Passive : {
 			'' : {	
 				Level : 10 
 			},
 		},		
-		ActiveSkills : {
+		Active : {
 			'' : {
 				Level : 1,
 				Category : 'Primary',

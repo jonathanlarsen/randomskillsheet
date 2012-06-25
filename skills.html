@@ -1,11 +1,28 @@
 <html>
 	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<script src='underscore-min.js'></script>
 		<script src='classes.js'></script>
+		<script src='functions.js'></script>
+		<script src='jquery.tmpl.js'></script>
+		<script src="http://us.battle.net/d3/static/js/tooltips.js"></script>
+		
 		<script>
-			var c = 'Barbarian';
-			var rand = Math.floor(Math.random() * barbarianSkills.PassiveSkills.length);
-			var passive = barbarianSkills.PassiveSkills[rand];
-			var randomPassive = classDetail[c].PassiveSkills[passive];
+			$(document).ready(function() {
+				generateBuild('Barbarian',60, true);
+				var markup = "<li><a href='http://us.battle.net/d3/en/class/barbarian/passive/${UrlName}'>${Name}</a></li>";
+				var data = passives;
+				$.template("passiveTemplate",markup);
+				$.tmpl("passiveTemplate", data).appendTo("#passiveList");
+				markup = "<li><a href='http://us.battle.net/d3/en/class/barbarian/active/${UrlName}'>${Name}</a> - <a data-d3tooltip='rune/earthquake/b'>${Rune}</a></li>";
+				data = actives;
+				$.template("activeTemplate",markup);
+				$.tmpl("activeTemplate", data).appendTo("#activeList");		
+			});
 		</script>
 	</head>
+	<body>
+		<ul id="passiveList"></ul>
+		<ul id="activeList"></ul>
+	</body>
 </html>
