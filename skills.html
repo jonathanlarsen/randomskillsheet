@@ -2,27 +2,47 @@
 	<head>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 		<script src='underscore-min.js'></script>
-		<script src='classes.js'></script>
+		<script src='knockout-2.1.0.js'></script>
+		<script src='data.js'></script>
 		<script src='functions.js'></script>
-		<script src='jquery.tmpl.js'></script>
+		<script src='model.js'></script>
 		<script src="http://us.battle.net/d3/static/js/tooltips.js"></script>
 		
 		<script>
+			var viewModel = new ViewModel();
 			$(document).ready(function() {
-				generateBuild('Barbarian',60, true);
-				var markup = "<li><a href='http://us.battle.net/d3/en/class/barbarian/passive/${UrlName}'>${Name}</a></li>";
-				var data = passives;
-				$.template("passiveTemplate",markup);
-				$.tmpl("passiveTemplate", data).appendTo("#passiveList");
-				markup = "<li><a href='http://us.battle.net/d3/en/class/barbarian/active/${UrlName}'>${Name}</a> - <a data-d3tooltip='rune/earthquake/b'>${Rune}</a></li>";
-				data = actives;
-				$.template("activeTemplate",markup);
-				$.tmpl("activeTemplate", data).appendTo("#activeList");		
+				ko.applyBindings(viewModel);
 			});
 		</script>
+		<style>
+			input[type="checkbox"] {-webkit-appearance: none;-webkit-border-radius: 3px;background: white;border: 1px solid #BBB;display: inline-block;font-size: 12px;height: 25px;line-height: 1em;margin: 0 0.25em 0 0;opacity: 0.9;padding: 0;vertical-align: text-top;width: 25px;}
+			input[type="checkbox"]:checked{ -webkit-transition: 0.75s linear; -webkit-transition-property: opacity, border; background-image: url(images/check_21.png); border: 1px solid #000; opacity: 1; }
+			input[type="number"] {-webkit-appearance: none;-webkit-border-radius: 3px;background: white;border: 1px solid #BBB;display: inline-block;font-size: 12px;height: 25px;line-height: 1em;margin: 0 0.25em 0 0;opacity: 0.9;padding: 0;vertical-align: text-top;}
+			input[type="checkbox"]:hover {border: 1px solid #090;}
+			select {-webkit-border-radius: 3px;background: white;border: 1px solid #BBB;display: inline-block;font-size: 12px;height: 25px;line-height: 1em;margin: 0 0.25em 0 0;opacity: 0.9;padding: 0;vertical-align: text-top;}
+			button {-webkit-border-radius: 3px;background: white;border: 1px solid #BBB;display: inline-block;font-size: 12px;height: 25px;line-height: 1em;margin: 0 0.25em 0 0;opacity: 0.9;padding: 0;vertical-align: text-top;width: 75px;}
+			button:hover{-moz-box-shadow: 0 0 10px rgba(0, 144, 0, 1);-moz-transition: 0.5s ease; -moz-transition-property: all; -webkit-box-shadow: 0 0 2px rgba(0, 144, 0, 1); -webkit-transition: 0.5s ease; -webkit-transition-property: all; background-color: #f5fefa; border: 1px solid rgba(0, 144, 0, 1);}
+		</style>
 	</head>
 	<body>
-		<ul id="passiveList"></ul>
-		<ul id="activeList"></ul>
+		<select data-bind="options: AvailableClasses, value: Class"></select>
+		<input type="number" min="0" max="60" data-bind="value: Level"></input>
+		<input type="checkbox" data-bind="checked: Elective"></input>
+		<button data-bind="click: fn.GenerateBuild">Generate</button>
+		
+		<ul data-bind="template: { name: 'passiveList', foreach: Passives }"></ul>
+		<ul data-bind="template: { name: 'activeList', foreach: Actives }"></ul>
+		<hr/>
+		
+		<ul data-bind="template: {name: 'passiveList', foreach: AvailablePassives }"></ul>
+		<ul data-bind="template: {name: 'activeList', foreach: AvailableActives }"></ul>
 	</body>
+	
+	<script type="text/html" id="passiveList">
+		<li><a data-bind="attr: { href: Url }"><span data-bind='text: Name'></span></a></li>
+	</script>
+	
+	<script type="text/html" id="activeList">
+		<li><a data-bind="attr:{ href: Url }"><span data-bind='text: Name'></span></a> <span data-bind='text: Rune'></span></li>
+	</script>
 </html>
