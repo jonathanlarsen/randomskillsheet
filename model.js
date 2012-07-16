@@ -8,6 +8,7 @@ var Active = function(name, rune, category) {
 	this.Rune = rune;
 	this.Category = category;
 	this.Url = 'http://us.battle.net/d3/en/class/'+toSlug(viewModel.Class())+'/active/' + toSlug(name);
+	this.IconUrl = "http://us.media.blizzard.com/d3/icons/skills/42/" + toSlugNoDash(viewModel.Class()) + "_" + toSlugNoDash(name) + ".png";
 };
 
 function ViewModel() {

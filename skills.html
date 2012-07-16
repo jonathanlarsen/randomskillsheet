@@ -1,12 +1,15 @@
 <html>
 	<head>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-		<script src='underscore-min.js'></script>
-		<script src='knockout-2.1.0.js'></script>
-		<script src='data.js'></script>
-		<script src='functions.js'></script>
-		<script src='model.js'></script>
 		<script src="http://us.battle.net/d3/static/js/tooltips.js"></script>
+		<script src='scripts/underscore-min.js'></script>
+		<script src='scripts/knockout-2.1.0.js'></script>
+		<script src='scripts/functions.js'></script>
+		<script src='scripts/bootstrap.min.js'></script>
+		<script src='model.js'></script>
+		<script src='data.min.js'></script>
+		
+		<link rel="stylesheet" type="text/css" href="css/grid.css" />
 		
 		<script>
 			var viewModel = new ViewModel();
@@ -22,27 +25,126 @@
 			select {-webkit-border-radius: 3px;background: white;border: 1px solid #BBB;display: inline-block;font-size: 12px;height: 25px;line-height: 1em;margin: 0 0.25em 0 0;opacity: 0.9;padding: 0;vertical-align: text-top;}
 			button {-webkit-border-radius: 3px;background: white;border: 1px solid #BBB;display: inline-block;font-size: 12px;height: 25px;line-height: 1em;margin: 0 0.25em 0 0;opacity: 0.9;padding: 0;vertical-align: text-top;width: 75px;}
 			button:hover{-moz-box-shadow: 0 0 10px rgba(0, 144, 0, 1);-moz-transition: 0.5s ease; -moz-transition-property: all; -webkit-box-shadow: 0 0 2px rgba(0, 144, 0, 1); -webkit-transition: 0.5s ease; -webkit-transition-property: all; background-color: #f5fefa; border: 1px solid rgba(0, 144, 0, 1);}
+			.top_margin100{margin-top: 100px;}
+			.top_margin25{margin-top: 25px;}
+			.top_margin50{margin-top: 50px;}
+			.text_c{text-align:center}
+			.passives{margin-top:100px;}
+			div.passive {border:solid 1px;}
+			.grid_25px{width:25px;display:inline;float:left;margin-left:1%;margin-right:1%;}
+			
+			.skill_background{background: url("http://us.battle.net/d3/static/images/tool/skill-calculator/sprite-v2.png") 0 0 no-repeat;}
+			
+			#active-skills li{float: left; width: 250px; height: 110px; margin-bottom:10px;}
+			ol, ul {list-style: none;}
+			.skills .skill-category { color: #7B6D55; text-shadow: 0 0 3px black; display: block; text-align: center;	font-size: 13px; }
+			.skills .skill-button { display: block; width: 168px; height: 68px; padding: 17px 17px 0 65px; position: relative; }
+			.skills .skill-button .skill-icon { display: block; width: 42px; height: 42px; position: absolute; top: 16px; left: 17px; text-align: center; }
+			.skills .skill-button.skill-button-chosen .skill-name {color: #F3E6D0;}
+			.skills .skill-button .skill-name, .skills .skill-button .skill-rune {display: block;height: 20px;line-height: 20px;color: #807667;}
+			.skills .skill-button .skill-rune {color: #D7851A;margin-top: 2px;}
+			.skills .skill-button .skill-slot {color: #D7851A;display: block;width: 22px;height: 18px;position: absolute;top: 63px;left: 114px;text-align: center;line-height: 18px;background: none;}
 		</style>
 	</head>
 	<body>
-		<select data-bind="options: AvailableClasses, value: Class"></select>
-		<input type="number" min="0" max="60" data-bind="value: Level"></input>
-		<input type="checkbox" data-bind="checked: Elective"></input>
-		<button data-bind="click: fn.GenerateBuild">Generate</button>
-		
-		<ul data-bind="template: { name: 'passiveList', foreach: Passives }"></ul>
-		<ul data-bind="template: { name: 'activeList', foreach: Actives }"></ul>
-		<hr/>
-		
-		<ul data-bind="template: {name: 'passiveList', foreach: AvailablePassives }"></ul>
-		<ul data-bind="template: {name: 'activeList', foreach: AvailableActives }"></ul>
+		<div class="container_12">
+			<div class="grid_12 top_margin100">
+				<div class="grid_12 alpha omega">
+					<div class="grid_3 alpha">&nbsp;</div>
+					<div class="grid_6">
+						<select class="grid_5 alpha" data-bind="options: AvailableClasses, value: Class"></select>
+						<input class="grid_3" type="number" min="0" max="60" data-bind="value: Level"></input>
+						<input class="grid_25px" type="checkbox" data-bind="checked: Elective"></input>
+						<button class="grid_3 omega" data-bind="click: fn.GenerateBuild">Generate</button>
+					</div>
+					<div class="grid_3 omega">&nbsp;</div>
+				</div>
+				
+				<!--<div class="grid_12 alpha omega actives" id="active-skills">
+					<div class="grid_3 alpha">&nbsp;</div>
+					<div class="grid_6" data-bind="template: { name: 'activeListGrid', foreach: Actives }"></div>
+					<div class="grid_3 omega">&nbsp;</div>
+				</div>-->
+				<div class="grid_3 alpha">&nbsp;</div>
+				<div class="grid_6 top_margin100" id="active-skills">
+					<ul data-bind="template: {name: 'activeListUL', foreach: Actives }"></ul>
+				</div>
+				<div class="grid_3 alpha">&nbsp;</div>
+				
+				<div class="grid_12 alpha omega passives">
+					<div class="grid_3 alpha">&nbsp;</div>
+					<div class="grid_6" data-bind="template: { name: 'passiveListGrid', foreach: Passives }"></div>
+					<div class="grid_3 omega">&nbsp;</div>
+				</div>
+			</div>
+			<hr/>
+			
+			<!--<ul data-bind="template: {name: 'passiveList', foreach: AvailablePassives }"></ul>
+			<ul data-bind="template: {name: 'activeList', foreach: AvailableActives }"></ul>-->
+		</div>
 	</body>
 	
 	<script type="text/html" id="passiveList">
 		<li><a data-bind="attr: { href: Url }"><span data-bind='text: Name'></span></a></li>
 	</script>
 	
+	<script type="text/html" id="passiveListGrid">
+		<div class="grid_4 passive" style="display: block">
+			<a data-bind="attr: { href: Url }"><span class="grid_12 alpha omega text_c" data-bind='text: Name'></span></a>
+		</div>
+	</script>
+	
 	<script type="text/html" id="activeList">
-		<li><a data-bind="attr:{ href: Url }"><span data-bind='text: Name'></span></a> <span data-bind='text: Rune'></span></li>
+		<li>(<span data-bind='text: Category'></span>)<a data-bind="attr:{ href: Url }"><span data-bind='text: Name'></span></a> <span data-bind='text: Rune'></span></li>
+	</script>
+	
+	<script type="text/html" id="activeListUL">
+		<li>
+			<span class="skill-category" data-bind="text: Category"></span>
+			<a class="skill-button" data-bind="attr:{href:Url}">
+				<span class="skill-icon">
+					<span class="d3-icon d3-icon-skill d3-icon-skill-42"  data-bind="style: { background: 'url(' + IconUrl + ')' }">
+						<span class="frame"></span>
+					</span>
+					<span class="no serif" style="display: none; ">1</span>
+				</span>
+				<span class="skill-name" data-bind="text: Name"></span>
+				<span class="skill-rune" data-bind="text: Rune">
+					<span class="d3-icon d3-icon-rune d3-icon-rune-small">
+						<span class="rune-e"></span>
+					</span>
+				</span>
+				<span class="skill-rune"></span>
+				<span class="skill-slot serif">
+					<span class="slot-primary">primary</span>
+				</span>
+			</a>
+		</li>
+	</script>
+	
+	<script type="text/html" id="activeListGrid">
+		<div class="grid_6 active-skill">
+			<div class="grid_12 alpha omega">
+				<span class="grid_12 alpha omega text_c" data-bind='text: Category'></span>
+			</div>
+			<div class="grid_12 alpha omega skill_background">
+				<a data-bind="attr:{ href: Url }">
+					<span class="grid_3 skill-icon">
+						<span xmlns="http://www.w3.org/1999/xhtml" class="d3-icon d3-icon-skill d3-icon-skill-42" data-bind="attr: background-image: 'url(' + IconUrl + ')'" >
+							<span class="frame"></span>
+						</span>
+					</span>
+					<span class="grid_9 omega">
+						<span class="grid_12 alpha omega">
+							<span data-bind='text: Name'></span>
+						</span>
+						<hr/>
+						<span class="grid_12 alpha omega">
+							<span data-bind='text: Rune'></span>
+						</span>
+					</span>
+				</a>
+			</div>
+		</div>
 	</script>
 </html>
